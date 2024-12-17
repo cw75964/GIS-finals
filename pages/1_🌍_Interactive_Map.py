@@ -31,5 +31,5 @@ m2 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
             )
 m2.add_basemap("OpenTopoMap")
 m2.add_heatmap(nation_old,
-              latitude="latitude",longitude="longitude",value="num",name="Heat map",radius=30,)
+              latitude="latitude",longitude="longitude",value="num",name="Heat map",radius=20,)
 m2.to_streamlit(height=700)
