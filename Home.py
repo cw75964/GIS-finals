@@ -1,5 +1,8 @@
 import streamlit as st
 import leafmap.foliumap as leafmap
+import numpy as np
+import pandas as pd
+
 
 st.set_page_config(layout="wide")
 
@@ -15,7 +18,7 @@ logo = "https://i.imgur.com/UbOXYAU.png"
 st.sidebar.image(logo)
 
 # Customize page title
-st.title("Streamlit for Geospatial Applications")
+st.title("臺灣古蹟、歷史建築之分布")
 
 st.markdown(
     """
@@ -23,18 +26,42 @@ st.markdown(
     """
 )
 
-st.header("Instructions")
+old=pd.read_csv('https://github.com/cw75964/GIS-finals/raw/refs/heads/master/%E5%8F%B0%E7%81%A3%E5%8F%A4%E8%B9%9F%20%E4%BF%AE%E6%AD%A3.csv')
+building=pd.read_csv('https://github.com/cw75964/GIS-finals/raw/refs/heads/master/%E5%8F%B0%E7%81%A3%E6%AD%B7%E5%8F%B2%E5%BB%BA%E7%AF%89%20%E4%BF%AE%E6%AD%A3.csv')
 
-markdown = """
-1. For the [GitHub repository](https://github.com/giswqs/streamlit-multipage-template) or [use it as a template](https://github.com/giswqs/streamlit-multipage-template/generate) for your own project.
-2. Customize the sidebar by changing the sidebar text and logo in each Python files.
-3. Find your favorite emoji from https://emojipedia.org.
-4. Add a new app to the `pages/` directory with an emoji in the file name, e.g., `1_🚀_Chart.py`.
+st.header("臺灣古蹟 Marker Cluster")
+m1 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
+            locate_control=True, latlon_control=True, draw_export=True, minimap_control=True
+            )
+m1.add_basemap("OpenTopoMap")
+m1.add_points_from_xy(old,x='longitude',y='latitude',spin=True,add_legend=True,layer_name='臺灣古蹟')
+m1.to_streamlit(height=700)
+st.write(old)
 
-"""
+st.header("臺灣古蹟分布 Heatmap")
+with st.expander("See source code"):
+    with st.echo():
+        old['num']=10
+        m2 = leafmap.Map(center=[23.7652,120.4980],zoom=8,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
+        m2.add_basemap("OpenTopoMap")
+        m2.add_heatmap(old,latitude="latitude",longitude="longitude",value="num",name="古蹟分布Heat map",radius=15,)
+        m2.to_streamlit(height=700)
 
-st.markdown(markdown)
 
-m = leafmap.Map(minimap_control=True)
-m.add_basemap("OpenTopoMap")
-m.to_streamlit(height=500)
+st.header("臺灣歷史建築 Marker Cluster")
+m3 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
+            locate_control=True, latlon_control=True, draw_export=True, minimap_control=True
+            )
+m3.add_basemap("OpenTopoMap")
+m3.add_points_from_xy(building,x='longitude',y='latitude',spin=True,add_legend=True,layer_name='臺灣歷史建築')
+m3.to_streamlit(height=700)
+st.write(building)
+
+st.header("臺灣歷史建築分布 Heatmap")
+with st.expander("See source code"):
+    with st.echo():
+        building['num']=10
+        m4 = leafmap.Map(center=[23.7652,120.4980],zoom=8,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
+        m4.add_basemap("OpenTopoMap")
+        m4.add_heatmap(building,latitude="latitude",longitude="longitude",value="num",name="歷史建築分布Heat map",radius=15,)
+        m4.to_streamlit(height=700)
