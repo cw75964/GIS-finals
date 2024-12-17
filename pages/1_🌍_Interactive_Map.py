@@ -17,7 +17,7 @@ st.title("臺灣國定古蹟")
 
 st.header("Marker Cluster")
 old=pd.read_csv('https://github.com/cw75964/GIS-finals/raw/refs/heads/master/%E5%8F%B0%E7%81%A3%E5%8F%A4%E8%B9%9F%20%E4%BF%AE%E6%AD%A3.csv')
-nation_old=old.loc(old[assetsClassifyName]=="國定古蹟")
+nation_old=old=old[old['assetsClassifyName']=='國定古蹟']
 m1 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
             locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
 m1.add_basemap("OpenTopoMap")
