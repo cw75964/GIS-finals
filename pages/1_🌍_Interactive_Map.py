@@ -23,7 +23,7 @@ m1 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
 m1.add_basemap("OpenTopoMap")
 m1.add_points_from_xy(nation_old,x='longitude',y='latitude',spin=True,add_legend=True,layer_name='國定古蹟')
 m1.to_streamlit(height=700)
-st.write(national_old)
+st.dataframe(national_old)
 st.header("Heatmap")
 nation_old['num']=10
 m2 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
