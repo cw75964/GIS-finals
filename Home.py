@@ -45,7 +45,7 @@ with st.expander("See source code"):
         m2 = leafmap.Map(center=[23.7652,120.4980],zoom=8,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
         m2.add_basemap("OpenTopoMap")
         m2.add_heatmap(old,latitude="latitude",longitude="longitude",value="num",name="古蹟分布Heat map",radius=15,)
-        m2.to_streamlit(height=700)
+m2.to_streamlit(height=700)
 
 
 st.header("臺灣歷史建築 Marker Cluster")
@@ -64,4 +64,4 @@ with st.expander("See source code"):
         m4 = leafmap.Map(center=[23.7652,120.4980],zoom=8,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
         m4.add_basemap("OpenTopoMap")
         m4.add_heatmap(building,latitude="latitude",longitude="longitude",value="num",name="歷史建築分布Heat map",radius=15,)
-        m4.to_streamlit(height=700)
+m4.to_streamlit(height=700)
