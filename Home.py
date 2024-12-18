@@ -33,7 +33,7 @@ build_na=pdd.read_csv('https://github.com/cw75964/GIS-finals/raw/refs/heads/mast
 
 old_name=old_na['name'].value_counts()
 old_city=old_na['city'].value_counts()
-build_name=build_na['name'].value_counts(
+build_name=build_na['name'].value_counts()
 build_city=build_na['city'].value_counts()
 
 st.header("臺灣古蹟 Marker Cluster")
