@@ -5,10 +5,6 @@ import pandas as pd
 
 st.set_page_config(layout="wide")
 
-markdown = """
-Web App URL: <https://geotemplate.streamlit.app>
-GitHub Repository: <https://github.com/giswqs/streamlit-multipage-template>
-"""
 
 st.title("臺灣直轄市and縣(市)定古蹟")
 
