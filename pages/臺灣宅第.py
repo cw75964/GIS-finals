@@ -47,7 +47,7 @@ m3.add_points_from_xy(build_maker,x='longitude',y='latitude',spin=True,add_legen
 m3.to_streamlit(height=700)
 st.dataframe(build_maker)
 st.header("宅第(歷史建築)Heatmap")
-dwell_old['num']=10
+dwell_build['num']=10
 m4 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
             locate_control=True, latlon_control=True, draw_export=True, minimap_control=True
             )
