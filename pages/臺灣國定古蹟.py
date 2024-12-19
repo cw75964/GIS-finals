@@ -2,15 +2,6 @@ import streamlit as st
 import leafmap.foliumap as leafmap
 import numpy as np
 import pandas as pd
-markdown = """
-Web App URL: <https://geotemplate.streamlit.app>
-GitHub Repository: <https://github.com/giswqs/streamlit-multipage-template>
-"""
-
-st.sidebar.title("About")
-st.sidebar.info(markdown)
-logo = "https://i.imgur.com/UbOXYAU.png"
-st.sidebar.image(logo)
 
 
 st.title("臺灣國定古蹟")
