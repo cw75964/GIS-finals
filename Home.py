@@ -6,18 +6,8 @@ import pandas as pd
 
 st.set_page_config(layout="wide")
 
-# Customize the sidebar
-markdown = """
-Web App URL: <https://geotemplate.streamlit.app>
-GitHub Repository: <https://github.com/giswqs/streamlit-multipage-template>
-"""
 
-st.sidebar.title("About")
-st.sidebar.info(markdown)
-logo = "https://i.imgur.com/UbOXYAU.png"
-st.sidebar.image(logo)
 
-# Customize page title
 st.title('古蹟、歷史建築之定義')
 st.write('古蹟：指人類為生活需要所營建之具有歷史、文化、藝術價值之建造物及附屬設施。')
 st.write('歷史建築：指歷史事件所定著或具有歷史性、地方性、特殊性之文化、藝術價值，應予保存之建造物及附屬設施。')
@@ -36,6 +26,14 @@ old_city=old_na['city'].value_counts()
 build_name=build_na['name'].value_counts()
 build_city=build_na['city'].value_counts()
 
+st.subheader("散佈圖")
+mcol1,mcol2=st.columns([1,1])
+with mcol1:
+            st.subheader('古蹟')
+            st.dataframe(old_na)
+with mcol2:
+            st.subheader('歷史建築')
+            st.dataframe(build_na)
 st.subheader("Marker Cluster")
 m1 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
             locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
