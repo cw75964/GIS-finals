@@ -15,7 +15,7 @@ build_na=build_na.drop(['addresses','num'],axis=1)
 lv_option_list = old_na["assetsClassifyName"].unique().tolist()
 lv_option = st.multiselect("選擇級別", lv_option_list)
 
-if city_option:
+if old_lv_filtered:
             old_lv_filtered = old_na[old_na["assetsClassifyName"].isin(lv_option)]
 else:
             old_lv_filtered = old_na
