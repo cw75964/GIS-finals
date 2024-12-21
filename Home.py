@@ -69,6 +69,7 @@ with col1:
             st.bar_chart(old_district)
             st.subheader("以古蹟級別統計之長條圖")
             level=old_city_filtered['assetsClassifyName'].value_counts()
+            st.bar_chart(level)
 
 
 with col2:
