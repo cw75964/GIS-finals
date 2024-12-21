@@ -22,25 +22,19 @@ with ocol2:
 with ocol3:
             lv_option_list = old_na["assetsClassifyName"].unique().tolist()
             lv_option = st.multiselect("選擇級別", lv_option_list,default=[])
+filtered_old = old_na
 
+# 如果用户选择了城市，就过滤城市
+if len(city_option) > 0:
+    filtered_old = filtered_old[filtered_old["city"].isin(city_option)]
 
-if len(city_option)!=0 and len(name_option)==0 and len(lv_option)==0:
-            filtered_old=old_na[old_na["city"].isin(city_option)]
-if len(name_option)!=0 and len(city_option)==0 and len(lv_option)==0:
-            filtered_old=old_na[old_na["name"].isin(name_option)]
-if len(lv_option)!=0 and len(city_option)==0 and len(name_option)==0:
-            filtered_old=old_na[old_na["assetsClassifyName"].isin(lv_option)]
-if len(city_option)!=0 and len(name_option)!=0 and len(lv_option)==0:
-            filtered_old=old_na[old_na["city"].isin(city_option)&old_na["name"].isin(name_option)]
-if len(city_option)==0 and len(name_option)!=0 and len(lv_option)!=0:
-            filtered_old=old_na[old_na["name"].isin(name_option)&old_na["assetsClassifyName"].isin(lv_option)]
-if len(city_option)!=0 and len(name_option)==0 and len(lv_option)!=0:
-            filtered_old=old_na[old_na["city"].isin(city_option)&old_na["assetsClassifyName"].isin(lv_option)]
-if len(city_option)!=0 and len(name_option)!=0 and len(lv_option)!=0:
-            filtered_old=old_na[old_na["city"].isin(city_option)&old_na["name"].isin(name_option)&old_na["assetsClassifyName"].isin(lv_option)]            
-else:
-            filtered_old=old_na
+# 如果用户选择了过去用途，就过滤过去用途
+if len(name_option) > 0:
+    filtered_old = filtered_old[filtered_old["name"].isin(name_option)]
 
+# 如果用户选择了资产级别，就过滤资产级别
+if len(lv_option) > 0:
+    filtered_old = filtered_old[filtered_old["assetsClassifyName"].isin(lv_option)]
 
 
 
