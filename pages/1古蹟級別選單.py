@@ -27,9 +27,6 @@ m1.add_points_from_xy(old_lv_filtered,x='longitude',y='latitude',spin=True,add_l
 m1.to_streamlit(height=700)
 st.subheader("資料表")
 st.dataframe(old_lv_filtered)
-st.subheader('以縣市統計之長條圖')
-city=old_lv_filtered['city'].value_counts()
-st.bar_chart(city)
 st.subheader("以過去用途統計之長條圖")
 old_lv_use=old_lv_filtered['name'].value_counts()
 st.bar_chart(old_lv_use)
@@ -38,4 +35,7 @@ old_lv_filtered['num']=10
 m2 = leafmap.Map(center=[23.7652,120.4980],zoom=8,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
 m2.add_heatmap(old_lv_filtered,latitude="latitude",longitude="longitude",value="num",name="古蹟分布Heat map",radius=15,)
 m2.to_streamlit(height=700)
+st.subheader('以縣市統計之長條圖')
+city=old_lv_filtered['city'].value_counts()
+st.bar_chart(city)
 
