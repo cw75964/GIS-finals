@@ -24,12 +24,6 @@ with ocol3:
             lv_option = st.multiselect("選擇級別", lv_option_list,default=lv_option_list)
 
 filtered_old=old_na[old_na[old_na['city'].isin(city_option) & old_na['name'].isin(name_option) & old_na['assetsClassifyName'].isin(lv_option)]]
-filtered_name_option_list=filtered_old['name'].unique().tolist()
-name_option=st.multiselect("選擇過去用途", filtered_name_option_list, default=filtered_name_option_list)
-filtered_level_option_list = filtered_old[filtered_old['name'].isin(name_option)]['assetsClassifyName'].unique().tolist()
-lv_option = st.multiselect("選擇級別", filtered_level_option_list, default=filtered_level_option_list)
-filtered_city_option_list=filtered_old[filtered_old['assetsClassifyName'].isin(lv_option)]['city'].unique().tolist()
-city_option=st.multiselect("選擇縣市", filtered_city_option_list,default=filtered_city_option_list)
 
 st.subheader("臺灣古蹟 Marker Cluster")
 m1 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
