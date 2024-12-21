@@ -69,7 +69,7 @@ with col2:
             m3.add_basemap("OpenTopoMap")
             m3.add_points_from_xy(build_city_filtered,x='longitude',y='latitude',spin=True,add_legend=True,layer_name='臺灣歷史建築')
             m3.to_streamlit(height=700)
-            st.write(build_city_filtered)
+            st.dataframe(build_city_filtered)
             build_city_name=build_city_filtered['name'].value_counts()
             st.bar_chart(build_city_name)
             st.header("臺灣歷史建築分布 Heatmap")
