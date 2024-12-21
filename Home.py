@@ -44,6 +44,7 @@ else:
             old_city_filtered = old_na
             build_city_filtered=build_na[build_na["city"].isin(city_option)]
 
+col1, col2 = st.columns([1, 1])
 with col1:
             st.subheader("臺灣古蹟 Marker Cluster")
             m1 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
