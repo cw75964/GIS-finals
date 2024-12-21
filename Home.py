@@ -42,7 +42,7 @@ if city_option:
             build_city_filtered=build_na[build_na["city"].isin(city_option)]            
 else:
             old_city_filtered = old_na
-            build_city_filtered=build_na[build_na["city"].isin(city_option)]
+            build_city_filtered=build_na
 
 col1, col2 = st.columns([1, 1])
 with col1:
