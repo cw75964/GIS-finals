@@ -36,6 +36,8 @@ if len(city_option)==0 and len(name_option)!=0 and len(lv_option)!=0:
             filtered_old=old_na[old_na["name"].isin(name_option)&old_na["assetsClassifyName"].isin(lv_option)]
 if len(city_option)!=0 and len(name_option)==0 and len(lv_option)!=0:
             filtered_old=old_na[old_na["city"].isin(city_option)&old_na["assetsClassifyName"].isin(lv_option)]
+if len(city_option)!=0 and len(name_option)!=0 and len(lv_option)!=0:
+            filtered_old=old_na[old_na["city"].isin(city_option)&old_na["name"].isin(name_option)&old_na["assetsClassifyName"].isin(lv_option)]            
 else:
             filtered_old=old_na
 
