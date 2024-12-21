@@ -14,7 +14,7 @@ build_na=pd.read_csv('https://github.com/cw75964/GIS-finals/raw/refs/heads/maste
 old_na=old_na.drop(['addresses','num'],axis=1)
 build_na=build_na.drop(['addresses','num'],axis=1)
 
-name_option_list = build_na["name"].unique().tolist()
+name_option_list = ['宅第', '其他設施', '寺廟', '墓葬', '衙署', '碑碣', '產業', '祠堂', '橋樑', '關塞', '牌坊','學校', '城郭', '車站', '書院', '教堂', '燈塔', '商店', '醫院', '辦公廳舍', '機關', '堤閘','官邸', '銀行', '集會堂', '戲劇院', '博物館', '市場']
 name_option = st.multiselect("選擇過去用途", name_option_list)
 
 if name_option:
