@@ -45,6 +45,8 @@ with col1:
             m1.to_streamlit(height=700)
             st.subheader("資料表")
             st.dataframe(filtered_old)
+            st.subheader("臺灣古蹟散佈圖")
+            st.map(filtered_old, size=20, color="#D94600")
             st.subheader("臺灣古蹟分布 Heatmap")
             filtered_old['num']=10
             m2 = leafmap.Map(center=[23.7652,120.4980],zoom=8,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
@@ -59,6 +61,8 @@ with col2:
             m3.to_streamlit(height=700)
             st.subheader("資料表")
             st.dataframe(filtered_build)
+            st.subheader("臺灣歷史建築散佈圖")
+            st.map(filtered_build, size=20, color="#2828FF")
             st.subheader("臺灣歷史建築分布 Heatmap")
             filtered_build['num']=10
             m4 = leafmap.Map(center=[23.7652,120.4980],zoom=8,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
