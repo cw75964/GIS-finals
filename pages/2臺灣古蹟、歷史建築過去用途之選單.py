@@ -11,8 +11,8 @@ st.title("臺灣古蹟、歷史建築過去用途之選單")
 
 old_na=pd.read_csv('https://github.com/cw75964/GIS-finals/raw/refs/heads/master/%E5%8F%A4%E8%B9%9F%E7%94%A8%E9%80%94%E3%80%81%E7%B8%A3%E5%B8%82%E3%80%81%E5%9C%B0%E5%9D%80.csv')
 build_na=pd.read_csv('https://github.com/cw75964/GIS-finals/raw/refs/heads/master/%E6%AD%B7%E5%8F%B2%E5%BB%BA%E7%AF%89%E7%94%A8%E9%80%94%E3%80%81%E7%B8%A3%E5%B8%82%E3%80%81%E5%9C%B0%E5%9D%80.csv')
-old_na=old_na.drop(['addresses','num'],axis=1)
-build_na=build_na.drop(['addresses','num'],axis=1)
+old_na=old_na.drop(['num'],axis=1)
+build_na=build_na.drop(['num'],axis=1)
 
 name_option_list = ['宅第', '其他設施', '寺廟', '墓葬', '衙署', '碑碣', '產業', '祠堂', '橋樑', '關塞', '牌坊','學校', '城郭', '車站', '書院', '教堂', '燈塔', '商店', '醫院', '辦公廳舍', '機關', '堤閘','官邸', '銀行', '集會堂', '戲劇院', '博物館', '市場']
 name_option = st.multiselect("選擇過去用途", name_option_list)
