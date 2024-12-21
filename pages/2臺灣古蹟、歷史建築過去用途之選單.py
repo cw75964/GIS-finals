@@ -40,7 +40,6 @@ with col1:
             m2.add_heatmap(old_name_filtered,latitude="latitude",longitude="longitude",value="num",name="古蹟分布Heat map",radius=15,)
             m2.to_streamlit(height=700)
             st.subheader('以縣市統計之長條圖')
-            city=st.subheader('以縣市統計之長條圖')
             old_city=old_name_filtered['city'].value_counts()
             st.bar_chart(old_city)
             st.subheader("以古蹟級別統計之長條圖")
