@@ -15,13 +15,13 @@ st.header('古蹟整合選單')
 ocol1,ocol2,ocol3=st.columns([1, 1, 1])
 with ocol1:
             city_option_list = old_na["city"].unique().tolist()
-            city_option = st.multiselect("選擇縣市", city_option_list)
+            city_option = st.multiselect("選擇縣市", city_option_list,default=[])
 with ocol2:
             name_option_list = old_na["name"].unique().tolist()
-            name_option = st.multiselect("選擇過去用途", name_option_list)
+            name_option = st.multiselect("選擇過去用途", name_option_list,default=[])
 with ocol3:
             lv_option_list = old_na["assetsClassifyName"].unique().tolist()
-            lv_option = st.multiselect("選擇級別", lv_option_list)
+            lv_option = st.multiselect("選擇級別", lv_option_list,default=[])
 
 
 if len(city_option)!=0 and len(name_option)==0 and len(lv_option)==0:
