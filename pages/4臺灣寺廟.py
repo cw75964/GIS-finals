@@ -11,7 +11,7 @@ old_na=old_na.drop(['addresses','num'],axis=1)
 build_na=build_na.drop(['addresses','num'],axis=1)
 
 st.title('整合之選單')
-st.header('古蹟整合選單)
+st.header('古蹟整合選單')
 ocol1,ocol2,ocol3=st.columns([1, 1, 1])
 with ocol1:
             city_option_list = old_na["city"].unique().tolist()
