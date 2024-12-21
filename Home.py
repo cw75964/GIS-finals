@@ -29,7 +29,9 @@ building=pd.read_csv('https://github.com/cw75964/GIS-finals/raw/refs/heads/maste
 old_na=pd.read_csv('https://github.com/cw75964/GIS-finals/raw/refs/heads/master/%E5%8F%A4%E8%B9%9F%E7%94%A8%E9%80%94%E3%80%81%E7%B8%A3%E5%B8%82%E3%80%81%E5%9C%B0%E5%9D%80.csv')
 build_na=pd.read_csv('https://github.com/cw75964/GIS-finals/raw/refs/heads/master/%E6%AD%B7%E5%8F%B2%E5%BB%BA%E7%AF%89%E7%94%A8%E9%80%94%E3%80%81%E7%B8%A3%E5%B8%82%E3%80%81%E5%9C%B0%E5%9D%80.csv')
 old_na.drop(columns=['addresses'])
+old_na.rename(columns={'distinct':'district'})
 build_na.drop(columns=['addresses'])
+build_na.rename(columns={'distinct':'district'})
 
 old_name=old_na['name'].value_counts()
 old_city=old_na['city'].value_counts()
