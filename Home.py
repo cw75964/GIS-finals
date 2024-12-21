@@ -30,10 +30,10 @@ st.subheader("散佈圖")
 mcol1,mcol2=st.columns([1,1])
 with mcol1:
             st.subheader('古蹟')
-            st.dataframe(old_na)
+            st.map(old_na, size=20, color="#D94600")
 with mcol2:
             st.subheader('歷史建築')
-            st.dataframe(build_na)
+            st.map(build_na, size=20, color="#000093")
 st.subheader("Marker Cluster")
 m1 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
             locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
