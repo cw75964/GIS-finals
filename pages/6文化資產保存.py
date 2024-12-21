@@ -13,7 +13,7 @@ st.write('基泰建設為加速開發，求仍住在此闕家人家繳付租金�
 
 st.header('困境')
 st.write('法律只保護已登記的古蹟，但登錄古蹟又會導致價值下降，同時登記步驟繁複，非常麻煩，大大降低登記意願，但沒有登記就無法可保，陷入兩難。(在下方全能古蹟燒毀王中有更詳盡的說明)')
-st.write('近期文資法修法雖提升了保存歷史建築之誘因，但依舊沒有像古蹟一樣有保存、維護之規範，讓歷史建築的保存舊困難。(延伸閱讀:[歷史、紀念建築享優惠卻未納保存規範 學者憂心文資法漏洞](https://www.cna.com.tw/culture/article/20240311w003))')
+st.write('近期文資法修法雖提升了保存歷史建築之誘因，但依舊沒有像古蹟一樣有保存、維護之規範，讓歷史建築的保存舊困難。(from[歷史、紀念建築享優惠卻未納保存規範 學者憂心文資法漏洞](https://www.cna.com.tw/culture/article/20240311w003))')
 
 st.header('台灣文化資產失火、破壞列表(from[全能古蹟燒毀王](https://shaohui.simpleinfo.cc/more/))')
 st.write('這個Google my map 來源於:https://www.google.com/maps/d/embed?mid=11yl4gOQPCqLQGVoHlwjy6zcOK70&hl=en_US&ll=23.574257149931483%2C120.73631799999997&z=8')
