@@ -32,8 +32,6 @@ else:
 
 col1, col2 = st.columns([1, 1])
 with col1:
-            st.subheader("臺灣古蹟散佈圖")
-            st.map(old_city_filtered, size=20, color="#D94600")
             st.subheader("臺灣古蹟 Marker Cluster")
             m1 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
                         locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
@@ -45,6 +43,8 @@ with col1:
             st.subheader("以過去用途統計之長條圖")
             old_city_name=old_city_filtered['name'].value_counts()
             st.bar_chart(old_city_name)
+            st.subheader("臺灣古蹟散佈圖")
+            st.map(old_city_filtered, size=20, color="#D94600")
             st.subheader("臺灣古蹟分布 Heatmap")
             old_city_filtered['num']=10
             m2 = leafmap.Map(center=[23.7652,120.4980],zoom=8,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
@@ -59,8 +59,6 @@ with col1:
 
 
 with col2:
-            st.subheader("臺灣歷史建築散佈圖")
-            st.map(build_city_filtered, size=20, color="#2828FF")
             st.subheader("臺灣歷史建築 Marker Cluster")
             m3 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
                         locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
@@ -72,6 +70,8 @@ with col2:
             st.subheader("以過去用途統計之長條圖")
             build_city_name=build_city_filtered['name'].value_counts()
             st.bar_chart(build_city_name)
+            st.subheader("臺灣歷史建築散佈圖")
+            st.map(build_city_filtered, size=20, color="#2828FF")
             st.subheader("臺灣歷史建築分布 Heatmap")
             build_city_filtered['num']=10
             m4 = leafmap.Map(center=[23.7652,120.4980],zoom=8,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
