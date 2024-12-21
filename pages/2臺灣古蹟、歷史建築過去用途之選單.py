@@ -19,7 +19,7 @@ name_option = st.multiselect("選擇過去用途", name_option_list)
 
 if name_option:
             old_name_filtered = old_na[old_na["name"].isin(name_option)]
-            build_name_filtered=build_na[build_na["city"].isin(name_option)]            
+            build_name_filtered=build_na[build_na["name"].isin(name_option)]            
 else:
             old_name_filtered = old_na
             build_name_filtered=build_na
