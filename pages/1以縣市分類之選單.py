@@ -60,7 +60,7 @@ with col1:
 
 with col2:
             st.subheader("臺灣歷史建築散佈圖")
-            st.map(build_city_filtered, size=20, color="#D94600")
+            st.map(build_city_filtered, size=20, color="#2828FF")
             st.subheader("臺灣歷史建築 Marker Cluster")
             m3 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
                         locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
