@@ -13,10 +13,10 @@ build_na=build_na.drop(['num'],axis=1)
 st.title('整合之選單')
 ocol1,ocol2,ocol3=st.columns([1, 1, 1])
 with ocol1:
-            city_option_list = old_na["city"].unique().tolist()
+            city_option_list = ['臺北市','新北市','基隆市','桃園市','新竹市','新竹縣','苗栗縣','臺中市','彰化縣','南投縣','雲林縣','嘉義市','嘉義縣','臺南市','高雄市','屏東縣','宜蘭縣','花蓮縣','臺東縣','澎湖縣','金門縣','連江縣']
             city_option = st.multiselect("選擇縣市", city_option_list,default=[])
 with ocol2:
-            name_option_list = old_na["name"].unique().tolist()
+            name_option_list = ['宅第', '其他設施', '寺廟', '墓葬', '衙署', '碑碣', '產業', '祠堂', '橋樑', '關塞', '牌坊','學校', '城郭', '車站', '書院', '教堂', '燈塔', '商店', '醫院', '辦公廳舍', '機關', '堤閘','官邸', '銀行', '集會堂', '戲劇院', '博物館', '市場']
             name_option = st.multiselect("選擇過去用途", name_option_list,default=[])
 with ocol3:
             lv_option_list = old_na["assetsClassifyName"].unique().tolist()
