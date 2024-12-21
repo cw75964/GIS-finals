@@ -36,7 +36,7 @@ old_city=old_na['city'].value_counts()
 build_name=build_na['name'].value_counts()
 build_city=build_na['city'].value_counts()
 
-city_option_list = old_na["city"].unique().tolist()
+city_option_list = ['臺北市','新北市','基隆市','桃園市','新竹市','新竹縣','苗栗縣','臺中市','彰化縣','南投縣','雲林縣','嘉義市','嘉義縣','臺南市','高雄市','屏東縣','宜蘭縣','花蓮縣','臺東縣','澎湖縣','金門縣','連江縣']
 city_option = st.multiselect("選擇縣市", city_option_list)
 
 if city_option:
