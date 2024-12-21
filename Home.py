@@ -63,7 +63,8 @@ with col1:
             m2 = leafmap.Map(center=[23.7652,120.4980],zoom=8,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
             m2.add_heatmap(old_city_filtered,latitude="latitude",longitude="longitude",value="num",name="古蹟分布Heat map",radius=15,)
             m2.to_streamlit(height=700)
-            st.bar_chart(old_city)
+            old_district=old_city_filtered['district'].value_counts()
+            st.bar_chart(old_district)
 
 with col2:
             st.subheader("臺灣歷史建築 Marker Cluster")
@@ -80,4 +81,5 @@ with col2:
             m4 = leafmap.Map(center=[23.7652,120.4980],zoom=8,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
             m4.add_heatmap(build_city_filtered,latitude="latitude",longitude="longitude",value="num",name="歷史建築分布Heat map",radius=15,)
             m4.to_streamlit(height=700)
-            st.bar_chart(build_city)
+            build_district=build_city_filtered['district'].value_counts()
+            st.bar_chart(build_district)
