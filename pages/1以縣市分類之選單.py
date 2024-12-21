@@ -32,6 +32,8 @@ else:
 
 col1, col2 = st.columns([1, 1])
 with col1:
+            st.subheader("臺灣古蹟散佈圖")
+            st.map(old_city_filtered, size=20, color="#D94600")
             st.subheader("臺灣古蹟 Marker Cluster")
             m1 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
                         locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
@@ -57,6 +59,8 @@ with col1:
 
 
 with col2:
+            st.subheader("臺灣歷史建築散佈圖")
+            st.map(build_city_filtered, size=20, color="#D94600")
             st.subheader("臺灣歷史建築 Marker Cluster")
             m3 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
                         locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
