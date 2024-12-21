@@ -19,8 +19,9 @@ if lv_option:
             old_lv_filtered = old_na[old_na["assetsClassifyName"].isin(lv_option)]
 else:
             old_lv_filtered = old_na
-st.subheader("臺灣古蹟 Marker Cluster")
+st.subheader("臺灣古蹟散佈圖")
 st.map(old_lv_filtered, size=20, color="#D94600")
+st.subheader("臺灣古蹟 Marker Cluster")
 m1 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
             locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
 m1.add_basemap("OpenTopoMap")
