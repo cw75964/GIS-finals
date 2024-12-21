@@ -43,7 +43,7 @@ m1.add_points_from_xy(old_na,x='longitude',y='latitude',spin=True,add_legend=Tru
 m1.add_points_from_xy(build_na,x='longitude',y='latitude',spin=True,add_legend=True,layer_name='臺灣歷史建築')
 m1.to_streamlit(height=700)
 st.subheader("資料表")
-col1,col2=st.columns[1:1]
+col1,col2=st.columns([1:1])
 with col1:
             st.subheader('古蹟')
             st.dataframe(old_na)
@@ -51,7 +51,7 @@ with col2:
             st.subheader('歷史建築')
             st.dataframe(build_na)
 st.subheader("以過去用途統計之長條圖")
-ncol1,ncol2=st.columns[1:1]
+ncol1,ncol2=st.columns([1:1])
 with ncol1:
             st.subheader('古蹟')
             st.bar_chart(old_name)
@@ -66,7 +66,7 @@ m2.add_heatmap(old_na,latitude="latitude",longitude="longitude",value="num",name
 m2.add_heatmap(build_na,latitude="latitude",longitude="longitude",value="num",name="歷史建築分布Heat map",radius=15,)
 m2.to_streamlit(height=700)
 st.subheader('以縣市統計之長條圖')
-ccol1,ccol2=st.columns[1:1]
+ccol1,ccol2=st.columns([1:1])
 with ccol1:
             st.subheader('古蹟')
             st.bar_chart(old_city)
