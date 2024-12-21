@@ -38,4 +38,4 @@ m2.to_streamlit(height=700)
 st.subheader('以縣市統計之長條圖')
 city=old_lv_filtered['city'].value_counts()
 st.bar_chart(city)
-
+st.map(old_lv_filtered, size=20, color="#0044ff")
