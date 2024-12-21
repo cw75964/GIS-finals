@@ -56,7 +56,7 @@ with col2:
             m3.to_streamlit(height=700)
             st.subheader("資料表")
             st.dataframe(build_name_filtered)
-            st.header("臺灣歷史建築分布 Heatmap")
+            st.subheader("臺灣歷史建築分布 Heatmap")
             build_name_filtered['num']=10
             m4 = leafmap.Map(center=[23.7652,120.4980],zoom=8,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
             m4.add_heatmap(build_name_filtered,latitude="latitude",longitude="longitude",value="num",name="歷史建築分布Heat map",radius=15,)
