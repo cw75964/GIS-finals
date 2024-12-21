@@ -35,7 +35,7 @@ if len(name_option) > 0:
 # 如果用户选择了资产级别，就过滤资产级别
 if len(lv_option) > 0:
             filtered_old = filtered_old[filtered_old["assetsClassifyName"].isin(lv_option)]
-            filtered_build = filtered_build[filtered_build["assetsClassifyName"].isin(lv_option)]
+            filtered_build = filtered_build
 
 col1, col2 = st.columns([1, 1])
 with col1:
