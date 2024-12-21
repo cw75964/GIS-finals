@@ -29,7 +29,7 @@ st.subheader("資料表")
 st.dataframe(old_lv_filtered)
 st.subheader("以過去用途統計之長條圖")
 old_lv_use=old_lv_filtered['name'].value_counts()
-st.bar_chart(old_lv_filtered)
+st.bar_chart(old_lv_use)
 st.subheader("臺灣古蹟分布 Heatmap")
 old_lv_filtered['num']=10
 m2 = leafmap.Map(center=[23.7652,120.4980],zoom=8,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
