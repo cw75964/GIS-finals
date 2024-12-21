@@ -24,8 +24,7 @@ st.write('歷史建築：指歷史事件所定著或具有歷史性、地方性�
 
 st.title("臺灣古蹟、歷史建築之分布")
 
-old=pd.read_csv('https://github.com/cw75964/GIS-finals/raw/refs/heads/master/%E5%8F%B0%E7%81%A3%E5%8F%A4%E8%B9%9F%20%E4%BF%AE%E6%AD%A3.csv')
-building=pd.read_csv('https://github.com/cw75964/GIS-finals/raw/refs/heads/master/%E5%8F%B0%E7%81%A3%E6%AD%B7%E5%8F%B2%E5%BB%BA%E7%AF%89%20%E4%BF%AE%E6%AD%A3.csv')
+
 old_na=pd.read_csv('https://github.com/cw75964/GIS-finals/raw/refs/heads/master/%E5%8F%A4%E8%B9%9F%E7%94%A8%E9%80%94%E3%80%81%E7%B8%A3%E5%B8%82%E3%80%81%E5%9C%B0%E5%9D%80.csv')
 build_na=pd.read_csv('https://github.com/cw75964/GIS-finals/raw/refs/heads/master/%E6%AD%B7%E5%8F%B2%E5%BB%BA%E7%AF%89%E7%94%A8%E9%80%94%E3%80%81%E7%B8%A3%E5%B8%82%E3%80%81%E5%9C%B0%E5%9D%80.csv')
 old_na=old_na.drop(['addresses','num'],axis=1)
@@ -68,6 +67,9 @@ with col1:
             old_district=old_city_filtered['district'].value_counts()
             st.subheader("以區統計之長條圖")
             st.bar_chart(old_district)
+            st.subheader("以古蹟級別統計之長條圖")
+            level=old_city_filtered['assetsClassifyName'].value_counts()
+
 
 with col2:
             st.subheader("臺灣歷史建築 Marker Cluster")
