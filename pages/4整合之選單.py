@@ -23,15 +23,15 @@ with ocol3:
             lv_option = st.multiselect("選擇級別", lv_option_list,default=[])
 filtered_old = old_na
 filtered_build=build_na
-# 如果用户选择了城市，就过滤城市
+
 if len(city_option) > 0:
             filtered_old = filtered_old[filtered_old["city"].isin(city_option)]
             filtered_build = filtered_build[filtered_build["city"].isin(city_option)]
-# 如果用户选择了过去用途，就过滤过去用途
+
 if len(name_option) > 0:
             filtered_old = filtered_old[filtered_old["name"].isin(name_option)]
             filtered_build = filtered_build[filtered_build["name"].isin(name_option)]
-# 如果用户选择了资产级别，就过滤资产级别
+
 if len(lv_option) > 0:
             filtered_old = filtered_old[filtered_old["assetsClassifyName"].isin(lv_option)]
 
