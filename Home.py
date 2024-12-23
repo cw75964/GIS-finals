@@ -59,12 +59,12 @@ st.subheader("以過去用途統計之圓餅圖")
 ncol1,ncol2=st.columns([1,1])
 with ncol1:
             st.subheader('古蹟')
-            fig1 = px.pie(old_pie, names='name', values='count', title='Category Distribution')
+            fig1 = px.pie(old_pie, names='name', values='count')
             st.plotly_chart(fig1)
 
 with ncol2:
-            st.subheader('古蹟')
-            fig2 = px.pie(build_pie, names='name', values='count', title='Category Distribution')
+            st.subheader('歷史建築')
+            fig2 = px.pie(build_pie, names='name', values='count')
             st.plotly_chart(fig2)
 st.subheader("Heatmap")
 old_na['num']=10
