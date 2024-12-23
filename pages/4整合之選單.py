@@ -14,6 +14,7 @@ filtered_old = old_na
 filtered_build=build_na
 
 st.title('整合之選單')
+st.write('請先選取縣市，然後下面三個選單會根據所選縣市過濾掉沒有的欄位')
 city_option_list = ['臺北市','新北市','基隆市','桃園市','新竹市','新竹縣','苗栗縣','臺中市','彰化縣','南投縣','雲林縣','嘉義市','嘉義縣','臺南市','高雄市','屏東縣','宜蘭縣','花蓮縣','臺東縣','澎湖縣','金門縣','連江縣']
 city_option = st.multiselect("選擇縣市", city_option_list)
 if len(city_option) > 0:
