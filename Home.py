@@ -27,6 +27,12 @@ old_city=old_na['city'].value_counts()
 build_name=build_na['name'].value_counts()
 build_city=build_na['city'].value_counts()
 
+old_pie=old_name.reset_index()
+old_pie.columns = ['name', 'count']
+build_pie=build_name.reset_index()
+build_pie.columns = ['name', 'count']
+
+
 st.subheader("散佈圖")
 mcol1,mcol2=st.columns([1,1])
 with mcol1:
@@ -49,14 +55,17 @@ with col1:
 with col2:
             st.subheader('歷史建築')
             st.dataframe(build_na)
-st.subheader("以過去用途統計之長條圖")
+st.subheader("以過去用途統計之圓餅圖")
 ncol1,ncol2=st.columns([1,1])
 with ncol1:
             st.subheader('古蹟')
-            st.bar_chart(old_name)
+            fig1 = px.pie(old_pie, names='name', values='count', title='Category Distribution')
+            st.plotly_chart(fig1)
+
 with ncol2:
-            st.subheader('歷史建築')
-            st.bar_chart(build_name)
+            st.subheader('古蹟')
+            fig2 = px.pie(build_pie, names='name', values='count', title='Category Distribution')
+            st.plotly_chart(fig2)
 st.subheader("Heatmap")
 old_na['num']=10
 build_na['num']=10
@@ -73,7 +82,4 @@ with ccol2:
             st.subheader('歷史建築')
             st.bar_chart(build_city)
             
-old_pie=old_name.reset_index()
-old_pie.columns = ['name', 'count']
-fig = px.pie(old_pie, names='name', values='count', title='Category Distribution')
-st.plotly_chart(fig)
+
