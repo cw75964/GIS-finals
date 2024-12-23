@@ -73,6 +73,7 @@ with ccol2:
             st.subheader('歷史建築')
             st.bar_chart(build_city)
 
-old_pie=old_name.to_frame().reset_index()
+old_pie=old_name.to_frame()
+old_pie=old_pie.reset_index()
 fig = px.pie(old_pie,value='count',name='name')
 st.plotly_chart(fig)
