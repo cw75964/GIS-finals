@@ -34,8 +34,7 @@ if len(name_option) > 0:
 
 if len(lv_option) > 0:
             filtered_old = filtered_old[filtered_old["assetsClassifyName"].isin(lv_option)]
-district_option_list=filtered_old['district'].unique().tolist()+filtered_build['district'].unique().tolist()
-district_option_list=district_option_list.unique()
+district_option_list=list(set(filtered_old['district'].unique().tolist()+filtered_build['district'].unique().tolist()))
 district_option=st.multiselect("選擇行政區", district_option_list,default=[])
 if district_option:
             filtered_old= filtered_old[filtered_old["district"].isin(district_option)]
