@@ -33,14 +33,6 @@ build_pie=build_name.reset_index()
 build_pie.columns = ['name', 'count']
 
 
-st.subheader("散佈圖")
-mcol1,mcol2=st.columns([1,1])
-with mcol1:
-            st.subheader('古蹟')
-            st.map(old_na, size=20, color="#D94600")
-with mcol2:
-            st.subheader('歷史建築')
-            st.map(build_na, size=20, color="#2828FF")
 st.subheader("Marker Cluster")
 m1 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
             locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
@@ -66,6 +58,14 @@ with ncol2:
             st.subheader('歷史建築')
             fig2 = px.pie(build_pie, names='name', values='count')
             st.plotly_chart(fig2)
+st.subheader("散佈圖")
+mcol1,mcol2=st.columns([1,1])
+with mcol1:
+            st.subheader('古蹟')
+            st.map(old_na, size=20, color="#D94600")
+with mcol2:
+            st.subheader('歷史建築')
+            st.map(build_na, size=20, color="#2828FF")
 st.subheader("Heatmap")
 old_na['num']=10
 build_na['num']=10
@@ -81,5 +81,12 @@ with ccol1:
 with ccol2:
             st.subheader('歷史建築')
             st.bar_chart(build_city)
-            
+lcol1,lcol2=st.columns([1,1])
+with lcol1:
+            st.subheader("以古蹟級別統計之圓餅圖")
+            level=old_na['assetsClassifyName'].value_counts().reset_index()
+            level.columns=['name','count']
+            fig3= px.pie(level, names='name', values='count')
+            st.plotly_chart(fig3)
+
 
