@@ -22,7 +22,7 @@ old_na=old_na.drop(['num'],axis=1)
 build_na=build_na.drop(['num'],axis=1)
 
 
-old_name=old_na['name'].value_counts()
+old_name=old_na['name'].value_counts(normalize =True)
 old_city=old_na['city'].value_counts()
 build_name=build_na['name'].value_counts()
 build_city=build_na['city'].value_counts()
