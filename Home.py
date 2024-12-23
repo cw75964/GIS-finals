@@ -75,5 +75,5 @@ with ccol2:
             
 old_pie=old_name.reset_index()
 old_pie.columns = ['name', 'count']
-fig = px.pie(old_pie,value='count',name='name')
+fig = px.pie(old_pie,value='count',name='name', title='Category Distribution')
 st.plotly_chart(fig)
