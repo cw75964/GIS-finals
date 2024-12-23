@@ -14,10 +14,15 @@ filtered_old = old_na
 filtered_build=build_na
 
 st.title('整合之選單')
+city_option_list = list(set(filtered_old['city'].unique().tolist()+filtered_build['city'].unique().tolist()))
+            city_option = st.multiselect("選擇縣市", city_option_list)
+if len(city_option) > 0:
+            filtered_old = filtered_old[filtered_old["city"].isin(city_option)]
+            filtered_build = filtered_build[filtered_build["city"].isin(city_option)]
 ocol1,ocol2,ocol3=st.columns([1, 1, 1])
 with ocol1:
-            city_option_list = list(set(filtered_old['city'].unique().tolist()+filtered_build['city'].unique().tolist()))
-            city_option = st.multiselect("選擇縣市", city_option_list)
+            district_option_list=list(set(filtered_old['district'].unique().tolist()+filtered_build['district'].unique().tolist()))
+            district_option=st.multiselect("選擇行政區", district_option_list)
 with ocol2:
             name_option_list =list(set(filtered_old['name'].unique().tolist()+filtered_build['name'].unique().tolist()))
             name_option = st.multiselect("選擇過去用途", name_option_list)
@@ -26,9 +31,7 @@ with ocol3:
             lv_option = st.multiselect("選擇級別", lv_option_list)
 
 
-if len(city_option) > 0:
-            filtered_old = filtered_old[filtered_old["city"].isin(city_option)]
-            filtered_build = filtered_build[filtered_build["city"].isin(city_option)]
+
 
 if len(name_option) > 0:
             filtered_old = filtered_old[filtered_old["name"].isin(name_option)]
@@ -36,14 +39,10 @@ if len(name_option) > 0:
 
 if len(lv_option) > 0:
             filtered_old = filtered_old[filtered_old["assetsClassifyName"].isin(lv_option)]
-district_option_list=list(set(filtered_old['district'].unique().tolist()+filtered_build['district'].unique().tolist()))
-district_option=st.multiselect("選擇行政區", district_option_list,default=[])
-if district_option:
+
+if len(district_option)>0:
             filtered_old= filtered_old[filtered_old["district"].isin(district_option)]
             filtered_build = filtered_build[filtered_build["district"].isin(district_option)]
-else:
-            filtered_old = filtered_old
-            filtered_build = filtered_build
 col1, col2 = st.columns([1, 1])
 with col1:
             st.subheader("臺灣古蹟 Marker Cluster")
