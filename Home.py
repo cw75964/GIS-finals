@@ -2,6 +2,7 @@ import streamlit as st
 import leafmap.foliumap as leafmap
 import numpy as np
 import pandas as pd
+import plotly.express as px
 
 
 st.set_page_config(layout="wide")
@@ -71,3 +72,6 @@ with ccol1:
 with ccol2:
             st.subheader('歷史建築')
             st.bar_chart(build_city)
+
+fig = px.pie(old_name)
+st.plotly_chart(fig)
