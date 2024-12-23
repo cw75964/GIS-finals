@@ -45,8 +45,10 @@ with col1:
             old_city=old_name_filtered['city'].value_counts()
             st.bar_chart(old_city)
             st.subheader("以古蹟級別統計之長條圖")
-            level=old_name_filtered['assetsClassifyName'].value_counts()
-            st.bar_chart(level)
+            level=old_name_filtered['assetsClassifyName'].value_counts().reset_index()
+            level.columns=['name','count']
+            fig3= px.pie(level, names='name', values='count')
+            st.plotly_chart(fig3)
 
 
 with col2:
