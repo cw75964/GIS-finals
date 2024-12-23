@@ -74,5 +74,5 @@ with ccol2:
             st.bar_chart(build_city)
 
 old_pie=old_name.to_frame()
-fig = px.pie(old_pie,value='counts',name=index)
+fig = px.pie(old_pie,value='counts',name=old_pie.index)
 st.plotly_chart(fig)
