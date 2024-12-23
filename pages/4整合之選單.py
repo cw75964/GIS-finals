@@ -16,7 +16,7 @@ filtered_build=build_na
 st.title('整合之選單')
 ocol1,ocol2,ocol3=st.columns([1, 1, 1])
 with ocol1:
-            city_option_list = list(set(filtered_old['cuty'].unique().tolist()+filtered_build['city'].unique().tolist()))
+            city_option_list = list(set(filtered_old['city'].unique().tolist()+filtered_build['city'].unique().tolist()))
             city_option = st.multiselect("選擇縣市", city_option_list,default=[])
 with ocol2:
             name_option_list =list(set(filtered_old['name'].unique().tolist()+filtered_build['name'].unique().tolist()))
