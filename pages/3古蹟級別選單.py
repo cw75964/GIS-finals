@@ -30,7 +30,7 @@ m1.add_points_from_xy(old_lv_filtered,x='longitude',y='latitude',spin=True,add_l
 m1.to_streamlit(height=700)
 st.subheader("資料表")
 st.dataframe(old_lv_filtered)
-st.subheader("以過去用途統計之長條圖")
+st.subheader("以過去用途統計之圓餅圖")
 old_lv_use=old_lv_filtered['name'].value_counts().reset_index()
 old_lv_use.columns=['name','count']
 fig1 = px.pie(old_lv_use, names='name', values='count')
