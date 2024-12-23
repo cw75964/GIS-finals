@@ -39,7 +39,7 @@ with col1:
             st.subheader("以過去用途統計之圓餅圖")
             old_city_name=old_city_filtered['name'].value_counts().reset_index()
             old_city_name.columns = ['name', 'count']
-            fig1 = px.pie(old_city_name, names='name', values='count', title='Category Distribution')
+            fig1 = px.pie(old_city_name, names='name', values='count')
             st.plotly_chart(fig1)
             st.subheader("臺灣古蹟散佈圖")
             st.map(old_city_filtered, size=20, color="#D94600")
@@ -65,9 +65,11 @@ with col2:
             m3.to_streamlit(height=700)
             st.subheader("資料表")
             st.dataframe(build_city_filtered)
-            st.subheader("以過去用途統計之長條圖")
-            build_city_name=build_city_filtered['name'].value_counts()
-            st.bar_chart(build_city_name)
+            st.subheader("以過去用途統計之圓餅圖")
+            build_city_name=build_city_filtered['name'].value_counts().reset_index()
+            build_city_name.columns = ['name', 'count']
+            fig2 = px.pie(build_city_name, names='name', values='count')
+            st.plotly_chart(fig2)
             st.subheader("臺灣歷史建築散佈圖")
             st.map(build_city_filtered, size=20, color="#2828FF")
             st.subheader("臺灣歷史建築分布 Heatmap")
