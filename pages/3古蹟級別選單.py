@@ -30,8 +30,10 @@ m1.to_streamlit(height=700)
 st.subheader("資料表")
 st.dataframe(old_lv_filtered)
 st.subheader("以過去用途統計之長條圖")
-old_lv_use=old_lv_filtered['name'].value_counts()
-st.bar_chart(old_lv_use)
+old_lv_use=old_lv_filtered['name'].value_counts().reset_index()
+old_lv_use.columns=['name','count']
+fig1 = px.pie(old_lv_use, names='name', values='count')
+st.plotly_chart(fig1)
 st.subheader("臺灣古蹟分布 Heatmap")
 old_lv_filtered['num']=10
 m2 = leafmap.Map(center=[23.7652,120.4980],zoom=8,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
