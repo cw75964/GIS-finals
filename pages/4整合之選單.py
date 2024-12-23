@@ -14,7 +14,7 @@ filtered_old = old_na
 filtered_build=build_na
 
 st.title('整合之選單')
-city_option_list = list(set(filtered_old['city'].unique().tolist()+filtered_build['city'].unique().tolist()))
+city_option_list = ['臺北市','新北市','基隆市','桃園市','新竹市','新竹縣','苗栗縣','臺中市','彰化縣','南投縣','雲林縣','嘉義市','嘉義縣','臺南市','高雄市','屏東縣','宜蘭縣','花蓮縣','臺東縣','澎湖縣','金門縣','連江縣']
 city_option = st.multiselect("選擇縣市", city_option_list)
 if len(city_option) > 0:
             filtered_old = filtered_old[filtered_old["city"].isin(city_option)]
