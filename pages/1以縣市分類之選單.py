@@ -52,8 +52,11 @@ with col1:
             st.subheader("以區統計之長條圖")
             st.bar_chart(old_district)
             st.subheader("以古蹟級別統計之長條圖")
-            level=old_city_filtered['assetsClassifyName'].value_counts()
-            st.bar_chart(level)
+            level=old_city_filtered['assetsClassifyName'].value_counts().reset_index()
+            level.columns=['name','count']
+            fig3= px.pie(level, names='name', values='count')
+            st.plotly_chart(fig3)
+
 
 
 with col2:
