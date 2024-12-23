@@ -15,7 +15,7 @@ filtered_build=build_na
 
 st.title('整合之選單')
 city_option_list = list(set(filtered_old['city'].unique().tolist()+filtered_build['city'].unique().tolist()))
-            city_option = st.multiselect("選擇縣市", city_option_list)
+city_option = st.multiselect("選擇縣市", city_option_list)
 if len(city_option) > 0:
             filtered_old = filtered_old[filtered_old["city"].isin(city_option)]
             filtered_build = filtered_build[filtered_build["city"].isin(city_option)]
