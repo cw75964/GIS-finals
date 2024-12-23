@@ -2,6 +2,7 @@ import streamlit as st
 import leafmap.foliumap as leafmap
 import numpy as np
 import pandas as pd
+import plotly.express as px
 
 st.set_page_config(layout="wide")
 
@@ -12,11 +13,6 @@ build_na=pd.read_csv('https://github.com/cw75964/GIS-finals/raw/refs/heads/maste
 old_na=old_na.drop(['num'],axis=1)
 build_na=build_na.drop(['num'],axis=1)
 
-
-old_name=old_na['name'].value_counts()
-old_city=old_na['city'].value_counts()
-build_name=build_na['name'].value_counts()
-build_city=build_na['city'].value_counts()
 
 st.title('以縣市分類之選單')
 
@@ -40,9 +36,11 @@ with col1:
             m1.to_streamlit(height=700)
             st.subheader("資料表")
             st.dataframe(old_city_filtered)
-            st.subheader("以過去用途統計之長條圖")
-            old_city_name=old_city_filtered['name'].value_counts()
-            st.bar_chart(old_city_name)
+            st.subheader("以過去用途統計之圓餅圖")
+            old_city_name=old_city_filtered['name'].value_counts().reset_index()
+            old_city_name.columns = ['name', 'count']
+            fig1 = px.pie(old_city_name, names='name', values='count', title='Category Distribution')
+            st.plotly_chart(fig1)
             st.subheader("臺灣古蹟散佈圖")
             st.map(old_city_filtered, size=20, color="#D94600")
             st.subheader("臺灣古蹟分布 Heatmap")
