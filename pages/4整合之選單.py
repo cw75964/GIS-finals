@@ -17,13 +17,13 @@ st.title('整合之選單')
 ocol1,ocol2,ocol3=st.columns([1, 1, 1])
 with ocol1:
             city_option_list = list(set(filtered_old['city'].unique().tolist()+filtered_build['city'].unique().tolist()))
-            city_option = st.multiselect("選擇縣市", city_option_list,default=[])
+            city_option = st.multiselect("選擇縣市", city_option_list)
 with ocol2:
             name_option_list =list(set(filtered_old['name'].unique().tolist()+filtered_build['name'].unique().tolist()))
-            name_option = st.multiselect("選擇過去用途", name_option_list,default=[])
+            name_option = st.multiselect("選擇過去用途", name_option_list)
 with ocol3:
             lv_option_list = filtered_old["assetsClassifyName"].unique().tolist()
-            lv_option = st.multiselect("選擇級別", lv_option_list,default=[])
+            lv_option = st.multiselect("選擇級別", lv_option_list)
 
 
 if len(city_option) > 0:
