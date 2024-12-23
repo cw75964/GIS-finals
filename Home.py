@@ -22,7 +22,7 @@ old_na=old_na.drop(['num'],axis=1)
 build_na=build_na.drop(['num'],axis=1)
 
 
-old_name=old_na['name'].value_counts(normalize =True)
+old_name=old_na['name'].value_counts()
 old_city=old_na['city'].value_counts()
 build_name=build_na['name'].value_counts()
 build_city=build_na['city'].value_counts()
@@ -72,8 +72,8 @@ with ccol1:
 with ccol2:
             st.subheader('歷史建築')
             st.bar_chart(build_city)
-
-old_pie=old_name.to_frame()
-old_pie=old_pie.reset_index()
+            
+old_pie=old_name.reset_index()
+old_pie.columns = ['name', 'count']
 fig = px.pie(old_pie,value='count',name='name')
 st.plotly_chart(fig)
