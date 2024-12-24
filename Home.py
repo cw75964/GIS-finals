@@ -34,7 +34,7 @@ build_pie.columns = ['name', 'count']
 
 
 st.subheader("Marker Cluster")
-m1 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
+m1 = leafmap.Map(center=[23.7652,120.4980],zoom=7,
             locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
 m1.add_points_from_xy(old_na,x='longitude',y='latitude',spin=True,add_legend=True,layer_name='臺灣古蹟')
 m1.add_points_from_xy(build_na,x='longitude',y='latitude',spin=True,add_legend=True,layer_name='臺灣歷史建築')
@@ -69,7 +69,7 @@ with mcol2:
 st.subheader("Heatmap")
 old_na['num']=10
 build_na['num']=10
-m2 = leafmap.Map(center=[23.7652,120.4980],zoom=8,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
+m2 = leafmap.Map(center=[23.7652,120.4980],zoom=7,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
 m2.add_heatmap(old_na,latitude="latitude",longitude="longitude",value="num",name="古蹟分布Heat map",radius=15,)
 m2.add_heatmap(build_na,latitude="latitude",longitude="longitude",value="num",name="歷史建築分布Heat map",radius=15,)
 m2.to_streamlit(height=700)
