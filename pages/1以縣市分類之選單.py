@@ -51,7 +51,7 @@ with col1:
             old_district=old_city_filtered['district'].value_counts()
             st.subheader("以區統計之長條圖")
             st.bar_chart(old_district)
-            st.subheader("以古蹟級別統計之長條圖")
+            st.subheader("以古蹟級別統計之圓餅圖")
             level=old_city_filtered['assetsClassifyName'].value_counts().reset_index()
             level.columns=['name','count']
             fig3= px.pie(level, names='name', values='count')
