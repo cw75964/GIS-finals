@@ -23,7 +23,7 @@ else:
 st.subheader("臺灣古蹟散佈圖")
 st.map(old_lv_filtered, size=20, color="#D94600")
 st.subheader("臺灣古蹟 Marker Cluster")
-m1 = leafmap.Map(center=[23.7652,120.4980],zoom=8,
+m1 = leafmap.Map(center=[23.7652,120.4980],zoom=7,
             locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
 m1.add_basemap("OpenTopoMap")
 m1.add_points_from_xy(old_lv_filtered,x='longitude',y='latitude',spin=True,add_legend=True,layer_name='臺灣古蹟')
@@ -37,7 +37,7 @@ fig1 = px.pie(old_lv_use, names='name', values='count')
 st.plotly_chart(fig1)
 st.subheader("臺灣古蹟分布 Heatmap")
 old_lv_filtered['num']=10
-m2 = leafmap.Map(center=[23.7652,120.4980],zoom=8,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
+m2 = leafmap.Map(center=[23.7652,120.4980],zoom=7,locate_control=True, latlon_control=True, draw_export=True, minimap_control=True)
 m2.add_heatmap(old_lv_filtered,latitude="latitude",longitude="longitude",value="num",name="古蹟分布Heat map",radius=15,)
 m2.to_streamlit(height=700)
 st.subheader('以縣市統計之長條圖')
